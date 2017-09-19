@@ -1,0 +1,25 @@
+    
+///Ticket Class
+[Serializable]
+[EntityTable(Name = "Tickets")]
+public class Ticket : Entity
+{
+    public override int Id { get; set; }
+    public string Subject { get; set; }
+    public string Message { get; set; }
+    public DateTime SentDate { get; set; }
+    [JoinField(typeof(User), "Id")]
+    public int SenderUserId { get; set; }
+    [JoinField(typeof(Product), "Id")]
+    public int ProductId { get; set; }
+    [JoinField(typeof(TicketImportanceLevel), "Id")]
+    public int ImportanceLevel { get; set; }
+    public int Analyze { get; set; }
+    public int SolutionTransactionId { get; set; }
+    [JoinField(typeof(TicketType), "Id")]
+    public int Type { get; set; }
+    public int Status { get; set; }
+    public int AssignedUserId { get; set; }
+    public float Score { get; set; }
+
+}
