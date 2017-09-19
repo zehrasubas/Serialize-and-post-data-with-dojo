@@ -1,0 +1,17 @@
+///POST function
+var Ticket = {
+        ProductId: productId,
+        Type: ticketType
+    };
+
+    DataService.xhrPageMethodJson("api/Tickets/MyTickets"
+        , dojo.toJson(Ticket)
+        , {
+            success: function (data) {
+                loadSubPage(getRoot("Support/Tickets.aspx?mode=list"));
+            },
+            error: function (err) {
+                LoadingOverlay.hide();
+            }
+        });
+        
