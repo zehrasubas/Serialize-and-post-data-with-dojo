@@ -1,0 +1,11 @@
+//////Web Method
+
+    [HttpPost]
+    [AcceptVerbs("POST")]
+    [ActionName("MyTickets")]
+    [Authorize]
+    public void MyTickets([FromBody]Ticket ticket)
+    {
+        DataTable myTickets = db.Tickets.MyTickets(Globals.LogonUser.User.Id, ticket.ProductId, ticket.Type);
+        WebContext.Session["Tickets"] = myTickets;
+    }
